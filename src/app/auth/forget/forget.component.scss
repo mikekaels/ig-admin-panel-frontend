@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+nb-card {
+  width: 35rem;
+  background-color: #ffffff;
+  border: 0 solid transparent;
+  border-radius: .25rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, .1);
+  color: #192038;
+  font-family: Open Sans, sans-serif;
+  font-size: .9375rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  display: flex;
+  justify-content: center;
+
+  nb-card-body {
+    padding: 1rem;
+
+    div.logo {
+      display: flex;
+      justify-content: center;
+
+      img {
+        max-width: 7rem;
+      }
+
+
+    }
+
+    div.title {
+      margin: 2px 0px;
+      text-align: center;
+
+      h1 {
+        font-size: 1.8rem;
+        margin: 5px 0px 5px 0px;
+      }
+
+      p {
+        font-size: 13px;
+        color: rgb(163, 163, 163);
+      }
+    }
+
+
+    div.form {
+      div.form-group {
+        margin-bottom: 15px;
+
+        label {
+          color: #646464;
+          font-size: 12px;
+        }
+
+        input {
+          margin-top: 10px;
+          font-size: 13px;
+          font-weight: 500;
+        }
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        margin: 18px 0px 0px 0px;
+      }
+    }
+  }
+}

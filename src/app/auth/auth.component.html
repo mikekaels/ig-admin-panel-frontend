@@ -1,0 +1,20 @@
+<nb-layout>
+  <nb-layout-column>
+    <div class="row mt-2">
+      <div class="col-md-6 offset-md-3">
+        <nb-card [nbSpinner]="api.loading" nbSpinnerStatus='danger' nbSpinnerSize='large' nbSpinnerMessage='loading...'>
+          <nb-card-body>
+            <div class="text-center">
+              <img width="20%"
+                src="https://img.pngio.com/building-business-company-estate-office-work-icon-company-png-512_512.png">
+            </div>
+            <router-outlet></router-outlet>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-layout-column>
+  <nb-layout-footer fixed>
+    <span class="created-by"><b><a href="https://www.cloud-ace.sg/" target="_blank">IG</a></b> 2020</span>
+  </nb-layout-footer>
+</nb-layout>

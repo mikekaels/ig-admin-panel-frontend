@@ -1,0 +1,51 @@
+<h1 class="text-center">IG</h1>
+
+<nb-alert *ngIf="errorMessage" status="danger" role="alert">
+  <div>{{errorMessage}}</div>
+</nb-alert>
+
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" aria-labelledby="title">
+  <div class="form-group">
+    <label class="label" for="input-email">Email:</label>
+
+    <input nbInput fullWidth formControlName="email" id="input-email" placeholder="email" fieldSize="medium"
+      aria-invalid="true" autofocus [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+      [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+
+    <ng-container *ngIf="email.invalid && email.touched">
+      <p class="caption-2 status-danger" *ngIf="loginForm.controls['email'].hasError('email')">
+        Please provide correct email format!
+      </p>
+      <p class="caption-2 status-danger" *ngIf="loginForm.controls['email'].hasError('required')">
+        Email is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="input-password">Password:</label>
+
+    <input nbInput fullWidth formControlName="password" type="password" id="input-password" placeholder="Password"
+      fieldSize="medium" [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
+      [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+
+    <ng-container *ngIf="password.invalid && password.touched ">
+      <p class="caption-2 status-danger" *ngIf="loginForm.controls['password'].hasError('required')">
+        Password is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <button nbButton fullWidth status="primary" size="large" [disabled]="loginForm.invalid" type="submit">
+      Log In
+    </button>
+  </div>
+
+</form>
+
+<section class="text-center">
+  <button outline status="info" size="small" [routerLink]="['/auth/forget']" routerLinkActive="router-link-active"
+    nbButton size="small">Forgot
+    Password</button>
+</section>

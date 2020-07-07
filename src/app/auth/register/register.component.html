@@ -1,0 +1,172 @@
+<h1 class="text-center">Register</h1>
+
+<nb-alert *ngIf="errorMessage" status="danger" role="alert">
+  <div>{{ errorMessage }}</div>
+</nb-alert>
+
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="register()"
+  aria-labelledby="title"
+>
+  <div class="form-group">
+    <label class="label" for="input-email">Email:</label>
+
+    <input
+      nbInput
+      fullWidth
+      formControlName="email"
+      id="input-email"
+      placeholder="email"
+      fieldSize="medium"
+      aria-invalid="true"
+      autofocus
+      [status]="email.dirty ? (email.invalid ? 'danger' : 'success') : ''"
+      [attr.aria-invalid]="email.invalid && email.touched ? true : null"
+    />
+
+    <ng-container *ngIf="email.invalid && email.touched">
+      <p
+        class="caption-2 status-danger"
+        *ngIf="registerForm.controls['email'].hasError('email')"
+      >
+        Please provide correct email format!
+      </p>
+      <p
+        class="caption-2 status-danger"
+        *ngIf="registerForm.controls['email'].hasError('required')"
+      >
+        Email is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="input-password">Password:</label>
+
+    <input
+      nbInput
+      fullWidth
+      formControlName="password"
+      type="password"
+      id="input-password"
+      placeholder="Password"
+      fieldSize="medium"
+      [status]="password.dirty ? (password.invalid ? 'danger' : 'success') : ''"
+      [attr.aria-invalid]="password.invalid && password.touched ? true : null"
+    />
+
+    <ng-container *ngIf="password.invalid && password.touched">
+      <p
+        class="caption-2 status-danger"
+        *ngIf="registerForm.controls['password'].hasError('required')"
+      >
+        Password is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="input-password">First Name:</label>
+
+    <input
+      nbInput
+      fullWidth
+      formControlName="firstname"
+      type="text"
+      id="input-firstName"
+      placeholder="First Name"
+      fieldSize="small"
+      [status]="
+        firstname.dirty ? (firstname.invalid ? 'danger' : 'success') : ''
+      "
+      [attr.aria-invalid]="firstname.invalid && firstname.touched ? true : null"
+    />
+
+    <ng-container *ngIf="firstname.invalid && firstname.touched">
+      <p
+        class="caption-2 status-danger"
+        *ngIf="registerForm.controls['firstname'].hasError('required')"
+      >
+        First name is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="input-password">Last Name:</label>
+
+    <input
+      nbInput
+      fullWidth
+      formControlName="lastname"
+      type="text"
+      id="input-lastname"
+      placeholder="Last Name"
+      fieldSize="small"
+      [status]="lastname.dirty ? (lastname.invalid ? 'danger' : 'success') : ''"
+      [attr.aria-invalid]="lastname.invalid && lastname.touched ? true : null"
+    />
+
+    <ng-container *ngIf="lastname.invalid && lastname.touched">
+      <p
+        class="caption-2 status-danger"
+        *ngIf="registerForm.controls['lastname'].hasError('required')"
+      >
+        Last name is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="input-password">Photo:</label>
+
+    <input
+      nbInput
+      fullWidth
+      formControlName="photoURL"
+      type="text"
+      id="input-photoURL"
+      placeholder="First name"
+      fieldSize="small"
+      [status]="photoURL.dirty ? (photoURL.invalid ? 'danger' : 'success') : ''"
+      [attr.aria-invalid]="photoURL.invalid && photoURL.touched ? true : null"
+    />
+
+    <ng-container *ngIf="photoURL.invalid && photoURL.touched">
+      <p
+        class="caption-2 status-danger"
+        *ngIf="registerForm.controls['photoURL'].hasError('required')"
+      >
+        Photo is required!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-group">
+    <button
+      nbButton
+      fullWidth
+      status="primary"
+      size="large"
+      [disabled]="registerForm.invalid"
+      type="submit"
+    >
+      Register
+    </button>
+  </div>
+</form>
+
+<section class="text-center">
+  <button
+    outline
+    status="info"
+    size="small"
+    [routerLink]="['/auth/login']"
+    routerLinkActive="router-link-active"
+    nbButton
+    size="small"
+  >
+    Login
+  </button>
+</section>

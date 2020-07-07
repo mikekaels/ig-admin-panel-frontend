@@ -1,0 +1,40 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <div class="header">
+      <div class="header-left">
+        <div class="burger-menu">
+          <nb-icon (click)='toggle()' nbButton icon-witdh="4rem" icon="menu-2-outline"></nb-icon>
+        </div>
+        <div class="vl"></div>
+        <div class="title">
+          <p>Lorem Ipsum</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="welcome-user">
+          <p>Welcome Admin</p>
+        </div>
+        <div class="vl"></div>
+        <div class="button">
+          <nb-icon [routerLink]="['/auth/login']" routerLinkActive="router-link-active" nbButton icon="log-out-outline">
+          </nb-icon>
+        </div>
+      </div>
+    </div>
+  </nb-layout-header>
+
+
+  <nb-sidebar>
+    <nb-menu [items]="menu" autoCollapse="true"></nb-menu>
+  </nb-sidebar>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer>
+    IG @2020
+  </nb-layout-footer>
+
+</nb-layout>
